@@ -3,6 +3,7 @@ package com.example.adminbagvana;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +24,13 @@ public class StatisticsActivity extends AppCompatActivity {
         total = findViewById(R.id.total);
         now = findViewById(R.id.now);
         yesterday = findViewById(R.id.yesterday);
+
+        back.setOnClickListener(v -> {
+            Intent myIntent = new Intent(StatisticsActivity.this, MainActivity.class);
+            finish();
+//                myIntent.putExtras(myBundle);
+            startActivity(myIntent);
+        });
 
         total.setOnClickListener(v -> {
             loadFragment(new StatisticsFragment("0"));
